@@ -22,3 +22,40 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Ignore local Maven configuration files
+*/.mvn/*.config
+
+# Maven build directory
+target/
+
+# Local Maven settings
+*/.mvn/settings.xml
+
+# Allow Maven wrapper if added later
+!*/.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
