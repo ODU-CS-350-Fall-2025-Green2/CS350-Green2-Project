@@ -15,6 +15,13 @@
     <maven.compiler.release>21</maven.compiler.release>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>odu-mavenrepo</id>
+      <url>https://www.cs.odu.edu/~zeil/mavenrepo</url>
+    </repository>
+  </repositories>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -44,6 +51,19 @@
         <groupId>org.apache.pdfbox</groupId>
         <artifactId>pdfbox</artifactId>
         <version>3.0.5</version>
+    </dependency>
+
+    <!-- Training Data -->
+    <dependency>
+      <groupId>edu.odu.cs.cs350.categorization.trainingData</groupId>
+      <artifactId>trainingData</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>edu.odu.cs.cs350.categorization.trainingData</groupId>
+      <artifactId>validationData</artifactId>
+      <version>1.0</version>
     </dependency>
   </dependencies>
 
