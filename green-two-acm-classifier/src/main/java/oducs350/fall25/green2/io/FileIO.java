@@ -5,6 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+
 public class FileIO {
     public static List<String> readTextFile(String path) throws IOException{
         Path filePath = Path.of(path);
@@ -16,11 +20,16 @@ public class FileIO {
                     .toList();
     }
 
-    public static List<String> readPDFFile(String path) throws IOException{
+    public static List<String> readPDFFile(String path) throws IOException {
         Path filePath = Path.of(path);
         if (!Files.exists(filePath)) {
             throw new IOException("File \"" + path + "\" does not exist");
         }
-        return null;
+
+        try (PDDocument doc = Loader.loadPDF(filePath.toFile())) {
+            PDFTextStripper stripper = new PDFTextStripper();
+            String text = stripper.getText(doc);
+            return text.lines().toList();
+        }
     }
 }
